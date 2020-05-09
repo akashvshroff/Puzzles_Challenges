@@ -12,7 +12,7 @@ def main():
              [0, 0, 0, 0, 0, 0, 0, 7, 4],
              [0, 0, 5, 2, 0, 6, 3, 0, 0]]
     sudoku(board)
-    print(board)
+    #print(board)
 
 
 def sudoku(board):
