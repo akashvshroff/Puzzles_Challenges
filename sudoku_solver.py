@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def main():
     global board
     board = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
@@ -12,38 +13,40 @@ def main():
              [0, 0, 0, 0, 0, 0, 0, 7, 4],
              [0, 0, 5, 2, 0, 6, 3, 0, 0]]
     sudoku(board)
-    #print(board)
+    # print(board)
 
 
 def sudoku(board):
 
-        for rowno in range(9):
-            for colno in range(9):
-                if board[rowno][colno] == 0:
-                    for i in range(1,10):
-                        if (is_valid(board,rowno,colno,i)):
-                            board[rowno][colno]=i
-                            if sudoku(board):
-                                return board
-                            else:
-                                board[rowno][colno]=0
-                    return False
+    for rowno in range(9):
+        for colno in range(9):
+            if board[rowno][colno] == 0:
+                for i in range(1, 10):
+                    if (is_valid(board, rowno, colno, i)):
+                        board[rowno][colno] = i
+                        if sudoku(board):
+                            return board
+                        else:
+                            board[rowno][colno] = 0
+                return False
 
-        return board
+    return board
 
-def is_valid(b,r,c,n): #check if number insertion is valid
-    if n in b[r]: #if in row
+
+def is_valid(b, r, c, n):  # check if number insertion is valid
+    if n in b[r]:  # if in row
         return False
-    for x in range(0,9):
-        if n == b[x][c]: #check for column
+    for x in range(0, 9):
+        if n == b[x][c]:  # check for column
             return False
-    sr = r - r%3
-    sc = c - c%3
-    for x in range(sr,sr+3):
-        for y in range(sc,sc+3):
-            if b[x][y]==n:
+    sr = r - r % 3
+    sc = c - c % 3
+    for x in range(sr, sr+3):
+        for y in range(sc, sc+3):
+            if b[x][y] == n:
                 return False
     return True
+
 
 if __name__ == "__main__":
     main()
