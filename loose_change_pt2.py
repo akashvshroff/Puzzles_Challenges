@@ -17,4 +17,4 @@ def loose_change(coins_list, amount_of_change):
     return n if sm > n else int(sm)
 
 
-#print(loose_change([1, 4, 5, 10], 8))
+print(loose_change([1, 2, 4, 5, 10], 8))

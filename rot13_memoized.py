@@ -1,12 +1,14 @@
 import string
+
+
 def rot13(message):
-    up = list(string.ascii_uppercase)
-    lo = list(string.ascii_lowercase)
+    up = string.ascii_uppercase
+    lo = string.ascii_lowercase
     s = ""
     cached = {}
     for l in message:
         if l in cached.keys():
-            s+=cached[l]
+            s += cached[l]
             continue
         if not l.isalpha():
             s += l
@@ -27,6 +29,7 @@ def rot13(message):
                     ni = i + 13
                 cached[l] = lo[ni]
                 s += lo[ni]
-
     return s
-#print(rot13("Test"))
+
+
+print(rot13("Grfg123__Uv guvf vf ub!!"))
