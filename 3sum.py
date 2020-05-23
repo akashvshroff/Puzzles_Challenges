@@ -1,4 +1,6 @@
 import itertools
+
+
 def three(arr, sum):
     sol = []
     arr = sorted(arr)
@@ -8,7 +10,7 @@ def three(arr, sum):
         while l < r:
             s = arr[i]+arr[l]+arr[r]
             if s == sum:
-                sol.append([arr[i],arr[l],arr[r]])
+                sol.append([arr[i], arr[l], arr[r]])
                 l = l+1
                 r = r-1
             elif s < sum:
@@ -19,4 +21,4 @@ def three(arr, sum):
     return [k for k in itertools.groupby(sol)]
 
 
-#print(three([2,0,3,-1,3,2,-1,-3,2,0,1],0))
+# print(three([2,0,3,-1,3,2,-1,-3,2,0,1],0))
