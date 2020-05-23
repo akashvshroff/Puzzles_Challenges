@@ -1,15 +1,16 @@
-def find_pair(nums, sum):
-    s, sm, bg, pair = 0, 0, len(nums)-1, []
+def find_pair(nums, target):
+    arr = sorted(nums)
+    s, sm, bg, pair = 0, 0, len(arr)-1, []
     while sm < bg:
-        s = nums[sm] + nums[bg]
-        if s > sum:
+        s = arr[sm] + arr[bg]
+        if s > target:
             bg -= 1
-        elif s < sum:
+        elif s < target:
             sm += 1
         else:
-            pair.append((nums[sm], nums[bg]))
+            index_1, index_2 = nums.index(arr[sm]), nums.index(arr[bg])
+            pair = [index_1, index_2]
             return pair
-    return False
 
 
-#print(find_pair([1, 2, 4, 5], 8))
+print(find_pair([3, 2, 4], 6))
