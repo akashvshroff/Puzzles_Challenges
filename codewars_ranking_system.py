@@ -14,7 +14,7 @@ class User():
 
     def calculate_progress(self):
         diff = self.completed - self.curr
-        if not diff:
+        if not diff and self.rank == 8:
             self.progress += 3
         elif diff == -1:
             self.progress += 1
