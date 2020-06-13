@@ -3,7 +3,7 @@ def loose_change(coins_list, amount_of_change):
     amt = amount_of_change
     n, sm = 0, None
     for coin in l_ch:
-        if amount_of_change % coin == 0:
+        if not amount_of_change % coin:
             if sm:
                 if amount_of_change/coin < sm:
                     sm = amount_of_change/coin
