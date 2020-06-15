@@ -5,4 +5,4 @@ def find_non_duplicate(nums):
     return x
 
 
-print(find_non_duplicate([1, 2, 1, 2, 3, 4, 3]))
+print(find_non_duplicate([1, 2]))

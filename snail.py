@@ -28,7 +28,7 @@ def snail(snail_map):
                  [7,8,9]]
     >>> print(snail(array))
     [1,2,3,6,9,8,7,4,5]
-    
+
     '''
     n = len(snail_map)
     dirs = {'right':'down','down':'left','left':'up','up':'right'}
