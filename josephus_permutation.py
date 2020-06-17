@@ -2,7 +2,6 @@ def josephus_permutation(items, k):
     index = -1
     res = []
     while len(items) > 1:
-        # print(items)
         index = (index + k) % len(items)
         gone = items.pop(index)
         res.append(gone)
