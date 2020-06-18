@@ -23,6 +23,12 @@ def find_primes(num):
 
 
 def proper_fractions(n):
+    '''
+    Inputs a number n and returns the number of integers between 0 and n-1
+    that are coprime with n, i.e have a gcd of 1.
+    >>> proper_fractions(10)
+    4 #1,3,7,9
+    '''
     if n <= 1:
         return 0
     num = int(math.sqrt(n))
