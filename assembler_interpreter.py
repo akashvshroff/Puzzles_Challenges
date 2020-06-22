@@ -2,7 +2,6 @@ def simple_assembler(program):
     """
     See also: https://www.codewars.com/kata/58e24788e24ddee28e000053/train/python
     A fun programming challenge to write a python program to parse interpreter instructions.
-
     """
     reg = {}
     i = 0
