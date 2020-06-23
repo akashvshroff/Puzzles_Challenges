@@ -26,6 +26,9 @@ def solve_staircase_input(n, steps):
 
 
 def staircase_input_faster(n, steps):
+    """
+    Had to refer to the solution for this!
+    """
     cache = [0 for _ in range(n + 1)]
     cache[0] = 1
     for i in range(n + 1):
