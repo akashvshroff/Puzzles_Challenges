@@ -63,6 +63,6 @@ def num_rooms_alternate(schedule):
 assert num_class_room([]) == 0
 assert num_class_room([(30, 75), (0, 50), (60, 150)]) == 2
 assert num_class_room([(30, 75), (0, 50), (10, 60), (60, 150)]) == 3
-assert num_class_room([(60, 150)]) == 1
-assert num_class_room([(60, 150), (150, 170)]) == 2
-assert num_class_room([(60, 150), (60, 150), (150, 170)]) == 3
+assert num_rooms_alternate([(60, 150)]) == 1
+assert num_rooms_alternate([(60, 150), (150, 170)]) == 2
+assert num_rooms_alternate([(60, 150), (60, 150), (150, 170)]) == 3
