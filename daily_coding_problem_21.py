@@ -30,6 +30,36 @@ def num_class_room(schedule: list) -> int:
     return len(meeting_rooms)
 
 
+def num_rooms_alternate(schedule):
+    if not schedule:
+        return 0
+
+    start_dict = dict()
+    end_dict = dict()
+    for start, end in schedule:
+        if start not in start_dict:
+            start_dict[start] = 0
+        start_dict[start] += 1
+
+        if end not in end_dict:
+            end_dict[end] = 0
+        end_dict[end] += 1
+
+    global_start, global_end = min(start_dict), max(end_dict)
+
+    max_room_count = 0
+    curr_room_count = 0
+    for i in range(global_start, global_end):
+        if i in start_dict:
+            curr_room_count += start_dict[i]
+            if curr_room_count > max_room_count:
+                max_room_count = curr_room_count
+        if i in end_dict:
+            curr_room_count -= end_dict[i]
+
+    return max_room_count
+
+
 assert num_class_room([]) == 0
 assert num_class_room([(30, 75), (0, 50), (60, 150)]) == 2
 assert num_class_room([(30, 75), (0, 50), (10, 60), (60, 150)]) == 3
