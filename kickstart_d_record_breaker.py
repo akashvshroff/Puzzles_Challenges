@@ -5,6 +5,8 @@ def num_record_breakers():
     it.
     2. If the day is not the last day, the attendance has to be more than the
     day after it.
+    See also:
+    https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08
     """
     num_cases = int(input())
     for test in range(num_cases):
