@@ -10,7 +10,7 @@ def values(n):
     squares = {}
     res = set()
     lim = int(n**0.5)
-    for i in range(1, n):
+    for i in range(1, lim):
         if i in squares:
             sos = squares[i]
         else:
@@ -30,4 +30,4 @@ def values(n):
     return len(res)
 
 
-print(values(100))
+print(values(10000000))
