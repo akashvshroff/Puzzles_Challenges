@@ -18,16 +18,8 @@ MORSE_CODE = {
 def decode_bits(bits):
     # ToDo: Accept 0's and 1's, return dots, dashes and spaces
     bits = bits.strip('0')
-    smallest_set = min(re.findall(r'1+', bits), key=len)
-    len_s = len(smallest_set)
-    pauses = re.findall(r'0+', bits)
-    if pauses:
-        if len(min(pauses, key=len)) < len_s:  # set bits are dash
-            bit_time = len_s//3
-        else:
-            bit_time = len_s
-    else:
-        bit_time = len_s
+    smallest_unit = min(re.findall(r'1+|0+', bits), key=len)
+    bit_time = len(smallest_unit)
 
     mapping = {
         '1'*bit_time: '.',
