@@ -20,20 +20,23 @@ def partition(a, l, r):
     index positions that mark the start and the end of the region with the pivot
     thereby accounting for non-unique integers.
     """
-    x, j, t = a[l], l, r
-    i = j
+    x, j1, t = a[l], l, r
+    i = j1
+    j2 = r
 
-    while i <= t:
+    while i <= r:  # forward pass
         if a[i] < x:
-            a[j], a[i] = a[i], a[j]
-            j += 1
-
-        elif a[i] > x:
-            a[t], a[i] = a[i], a[t]
-            t -= 1
-            i -= 1  # remain in the same i in this case
+            a[j1], a[i] = a[i], a[j1]
+            j1 += 1
         i += 1
-    return j, t
+
+    while t >= j1:  # backward pass
+        if a[t] > x:
+            a[j2], a[t] = a[t], a[j2]
+            j2 -= 1
+        t -= 1
+
+    return j1, j2
 
 
 if __name__ == '__main__':
