@@ -7,7 +7,7 @@ class TrieNode:
         occurs in the Trie.
         """
         self.key = key
-        self.children = []
+        self.children = {}
         self.endpoint = False
         self.number = 0
 
@@ -17,23 +17,43 @@ class Trie:
         """
         Constructor for the Trie class using the Trie nodes. 
         """
-        pass
+        self.head = TrieNode()
 
     def build_from_list(self, words):
         """
         Build a Trie using a list of words alloted.
         """
-        pass
+        for word in words:
+            cur = self.head
+            for id, letter in enumerate(word):
+                if letter not in cur.children:
+                    newTrie = TrieNode(letter)
+                    if id == len(word) - 1:
+                        newTrie.endpoint = True
+                    cur.children[letter] = newTrie
+                cur = cur.children[letter]
+                if cur.endpoint:
+                    if id == len(word) - 1:  # last letter
+                        cur.number += 1
 
     def find_num_occurences(self, word):
         """
         Given a word, find the number of occurences of the word in
         the Trie.
         """
-        pass
+        cur = self.head
+        num = 0
+        for letter in word:
+            if letter not in cur.children:
+                break
+            else:
+                cur = cur.children[letter]
+        if cur.endpoint:
+            num = cur.number
+        return num
 
 
-def spare_array_trie(strings, queries):
+def sparse_array_trie(strings, queries):
     """
     There is a collection of input strings and a collection of query
     strings. For each query string, determine how many times it occurs
@@ -43,7 +63,9 @@ def spare_array_trie(strings, queries):
 
     A simpler solution using hash maps lies below.
     """
-    pass
+    trie = Trie()
+    trie.build_from_list(strings)
+    return [trie.find_num_occurences(query) for query in queries]
 
 
 def sparse_array_hash(strings, queries):
@@ -55,3 +77,25 @@ def sparse_array_hash(strings, queries):
     for string in strings:
         count[string] = count.get(string, 0) + 1
     return [count.get(query, 0) for query in queries]
+
+
+if __name__ == '__main__':
+
+    strings_count = int(input())
+
+    strings = []
+
+    for _ in range(strings_count):
+        strings_item = input()
+        strings.append(strings_item)
+
+    queries_count = int(input())
+
+    queries = []
+
+    for _ in range(queries_count):
+        queries_item = input()
+        queries.append(queries_item)
+
+    print(sparse_array_hash(strings, queries))
+    print(sparse_array_trie(strings, queries))
