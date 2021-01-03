@@ -28,10 +28,10 @@ class Trie:
             for id, letter in enumerate(word):
                 if letter not in cur.children:
                     newTrie = TrieNode(letter)
-                    if id == len(word) - 1:
-                        newTrie.endpoint = True
                     cur.children[letter] = newTrie
                 cur = cur.children[letter]
+                if id == len(word) - 1:
+                    cur.endpoint = True
                 if cur.endpoint:
                     if id == len(word) - 1:  # last letter
                         cur.number += 1
