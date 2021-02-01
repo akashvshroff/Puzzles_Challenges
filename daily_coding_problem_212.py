@@ -27,3 +27,13 @@ print(column_name(80))
 print(column_name(676))
 print(column_name(702))
 print(column_name(705))
+
+"""
+Z
+AY 
+AZ 
+CB 
+YZ 
+ZZ 
+AAC
+"""
