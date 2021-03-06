@@ -9,13 +9,10 @@ def h_index(citations):
     For example, suppose N = 5, and the respective citations of each paper are [4, 3, 0, 1, 5]. 
     Then the h-index would be 3, since the researcher has 3 papers with at least 3 citations.
     """
-    citations.sort()
-    h = 0
-    num = len(citations)
-    for paper, citation in enumerate(citations):
-        num_papers = num - paper
-        if num_papers >= citation:
-            h = citation
+    citations.sort(reverse=True)
+    for i, citation in enumerate(citations):
+        if i <= citation:
+            return i
     return h
 
 
