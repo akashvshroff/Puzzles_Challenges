@@ -13,7 +13,6 @@ def h_index(citations):
     for i, citation in enumerate(citations):
         if i <= citation:
             return i
-    return h
 
 
 print(h_index([4, 3, 0, 1, 5]))
