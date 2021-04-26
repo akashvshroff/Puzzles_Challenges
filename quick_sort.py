@@ -1,6 +1,6 @@
 def quick_sort(arr):
     """
-    A more memory efficient technique of comparison based sorting where a random
+    A less memory efficient technique of comparison based sorting where a random
     pivot is chosen and the rest of elements are partitioned into 2 groups that
     are less than or equal to the pivot and greater than the pivot. At each
     partition, the pivot is placed in its final position and this step is
