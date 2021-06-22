@@ -49,3 +49,6 @@ test_cases = [
 
 for arr, expected in test_cases:
     assert sum_or_product(arr) == expected
+
+arr = [1]*50
+print(sum_or_product(arr))
